@@ -3,8 +3,8 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: #ffffff;  /* Белый фон */
-    color: #000000;  /* Черный текст */
+    background: #ffffff;
+    color: #000000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -41,10 +41,10 @@ body {
 .container {
     padding: 20px;
     flex-grow: 1;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin: 10px;
-    background: #f9f9f9;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    margin: 15px;
+    background: #f8f9fa;
     position: relative;
 }
 
@@ -54,9 +54,9 @@ header {
     align-items: center;
     padding: 15px 20px;
     background: #ffffff;
-    border-bottom: 1px solid #ddd;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid #e9ecef;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .user-info {
@@ -65,21 +65,22 @@ header {
 }
 
 .avatar {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 15px;
-    border: 2px solid #000;
-    transition: transform 0.3s ease;
+    border: 3px solid #000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .avatar:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 #user-name {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .menu-icon {
@@ -88,14 +89,14 @@ header {
 }
 
 .menu-icon:hover {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
 }
 
 .menu-icon div {
-    width: 30px;
-    height: 4px;
+    width: 35px;
+    height: 5px;
     background: #000;
-    margin: 6px 0;
+    margin: 7px 0;
     transition: background 0.3s;
 }
 
@@ -103,13 +104,14 @@ header {
     position: absolute;
     top: 0;
     right: -300px;
-    width: 250px;
+    width: 280px;
     height: 100%;
     background: #ffffff;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: right 0.3s ease;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: right 0.4s ease-in-out;
     z-index: 10;
+    border-left: 2px solid #ddd;
 }
 
 .sidebar.open {
@@ -117,56 +119,92 @@ header {
 }
 
 #settings-title {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
 }
 
 .language-select button {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-bottom: 15px;
     background: #f0f0f0;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
     font-size: 16px;
 }
 
 .language-select button:hover {
-    background: #ddd;
+    background: #e0e0e0;
+    transform: translateX(5px);
 }
 
 .language-select button.active {
     background: #000;
     color: #fff;
+    border-color: #000;
 }
 
 .content {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
 }
 
 .app-button {
-    background: #ffffff;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
     border: 2px solid #000;
-    border-radius: 15px;
-    padding: 20px;
-    font-size: 18px;
+    border-radius: 20px;
+    padding: 25px;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .app-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+}
+
+#spam-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#spam-form label {
+    font-weight: 700;
+}
+
+#spam-form input, #spam-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#spam-form button {
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#spam-form button:hover {
+    background: #333;
 }

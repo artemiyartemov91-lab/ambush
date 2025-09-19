@@ -24,17 +24,38 @@
         <div class="sidebar" id="sidebar">
             <h2 id="settings-title">Settings</h2>
             <div class="language-select">
-                <button onclick="changeLanguage('ru')" id="lang-ru">🇷🇺 Russian</button>
-                <button onclick="changeLanguage('en')" id="lang-en">🇺🇸 English</button>
-                <button onclick="changeLanguage('zh')" id="lang-zh">🇨🇳 Chinese</button>
+                <button onclick="changeLanguage('ru')" id="lang-ru">ru</button>
+                <button onclick="changeLanguage('en')" id="lang-en">en</button>
+                <button onclick="changeLanguage('zh')" id="lang-zh">zh</button>
             </div>
         </div>
-        <div class="content">
+        <div class="content" id="main-tab">
             <div class="button-grid">
-                <button class="app-button" id="btn-id">ID</button>
-                <button class="app-button" id="btn-nickname">Nickname</button>
-                <button class="app-button" id="btn-soon">Soon..</button>
+                <button class="app-button" id="btn-search-id" onclick="alert('Coming soon')">Поиск по Айди</button>
+                <button class="app-button" id="btn-search-nickname" onclick="alert('Coming soon')">Поиск по Никнейму</button>
+                <button class="app-button" id="btn-spammer" onclick="showSpammerMenu()">Spammer</button>
             </div>
+        </div>
+        <div class="content" id="spammer-menu" style="display: none;">
+            <button class="app-button" onclick="showDiscordMenu()">Discord</button>
+            <button class="app-button" onclick="backToMain()">Назад</button>
+        </div>
+        <div class="content" id="discord-menu" style="display: none;">
+            <button class="app-button" onclick="showWebhookForm()">Discord Webhook</button>
+            <button class="app-button" disabled>Скоро..</button>
+            <button class="app-button" onclick="backToSpammer()">Назад</button>
+        </div>
+        <div class="content" id="webhook-form" style="display: none;">
+            <form id="spam-form">
+                <label for="webhook-url">Webhook URL:</label>
+                <input type="text" id="webhook-url" required>
+                <label for="message-count">Количество сообщений:</label>
+                <input type="number" id="message-count" min="1" max="100" required>
+                <label for="message-text">Текст сообщения:</label>
+                <textarea id="message-text" required></textarea>
+                <button type="button" onclick="sendSpam()">Отправить</button>
+                <button type="button" onclick="backToDiscord()">Назад</button>
+            </form>
         </div>
     </div>
     <script src="js/script.js"></script>
